@@ -1,0 +1,898 @@
+<!DOCTYPE html><html>
+        <head><meta charset="UTF-8"><style media="print" type="text/css">.pageEnd{page-break-after:always;}
+        </style><style>pre {white-space: pre-wrap;white-space: -moz-pre-wrap;white-space: -pre-wrap;white-space:
+        -o-pre-wrap;word-wrap: break-word;}</style><title>LETTers 2018 Shannxi Invitational Training Round 03 for Sparks</title></head><body><div style="width:960px;margin:auto"><h1>A - Compromise</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">65536 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Linux</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  In a few months the European Currency Union will become a reality. However, to join the club, the Maastricht criteria must be fulfilled, and this is not a trivial task for the countries (maybe except for Luxembourg). To enforce that Germany will fulfill the criteria, our government has so many wonderful options (raise taxes, sell stocks, revalue the gold reserves,...) that it is really hard to choose what to do.
+  <br/>
+  <br/>
+  Therefore the German government requires a program for the following task:
+  <br/>
+  Two politicians each enter their proposal of what to do. The computer then outputs the longest common subsequence of words that occurs in both proposals. As you can see, this is a totally fair compromise (after all, a common sequence of words is something what both people have in mind).
+  <br/>
+  <br/>
+  Your country needs this program, so your job is to write it for us.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  The input will contain several test cases.
+  <br/>
+  Each test case consists of two texts. Each text is given as a sequence of lower-case words, separated by whitespace, but with no punctuation. Words will be less than 30 characters long. Both texts will contain less than 100 words and will be terminated by a line containing a single '#'.
+  <br/>
+  Input is terminated by end of file.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  For each test case, print the longest common subsequence of words occuring in the two texts. If there is more than one such sequence, any one is acceptable. Separate the words by one blank. After the last word, output a newline character.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">die einkommen der landwirte
+sind fuer die abgeordneten ein buch mit sieben siegeln
+um dem abzuhelfen
+muessen dringend alle subventionsgesetze verbessert werden
+#
+die steuern auf vermoegen und einkommen
+sollten nach meinung der abgeordneten
+nachdruecklich erhoben werden
+dazu muessen die kontrollbefugnisse der finanzbehoerden
+dringend verbessert werden
+#
+</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">die einkommen der abgeordneten muessen dringend verbessert werden
+</pre>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>B - The Great Mixing</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">262144 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat"></span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <div>
+  <p>
+   Sasha and Kolya decided to get drunk with Coke, again. This time they have
+   <span class="tex-span">
+    <i>
+     k
+    </i>
+   </span>
+   types of Coke.
+   <span class="tex-span">
+    <i>
+     i
+    </i>
+   </span>
+   -th type is characterised by its carbon dioxide concentration
+   <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/1d1aa3bee72aa8d518dd568a0f988128?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+   . Today, on the party in honour of Sergiy of Vancouver they decided to prepare a glass of Coke with carbon dioxide concentration
+   <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/730827dc694c784c6adf7e883871d100?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+   . The drink should also be tasty, so the glass can contain only integer number of liters of each Coke type (some types can be not presented in the glass). Also, they want to minimize the total volume of Coke in the glass.
+  </p>
+  <p>
+   Carbon dioxide concentration is defined as the volume of carbone dioxide in the Coke divided by the total volume of Coke. When you mix two Cokes, the volume of carbon dioxide sums up, and the total volume of Coke sums up as well.
+  </p>
+  <p>
+   Help them, find the minimal natural number of liters needed to create a glass with carbon dioxide concentration
+   <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/730827dc694c784c6adf7e883871d100?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+   . Assume that the friends have unlimited amount of each Coke type.
+  </p>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="input-specification">
+  <div class="section-title" div="">
+   <p>
+    The first line contains two integers
+    <span class="tex-span">
+     <i>
+      n
+     </i>
+    </span>
+    ,
+    <span class="tex-span">
+     <i>
+      k
+     </i>
+    </span>
+    (
+    <span class="tex-span">
+     0 ≤
+     <i>
+      n
+     </i>
+     ≤ 1000
+    </span>
+    ,
+    <span class="tex-span">
+     1 ≤
+     <i>
+      k
+     </i>
+     ≤ 10
+     <sup class="upper-index">
+      6
+     </sup>
+    </span>
+    ) — carbon dioxide concentration the friends want and the number of Coke types.
+   </p>
+   <p>
+    The second line contains
+    <span class="tex-span">
+     <i>
+      k
+     </i>
+    </span>
+    integers
+    <span class="tex-span">
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      1
+     </sub>
+     ,
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      2
+     </sub>
+     , ...,
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      <i>
+       k
+      </i>
+     </sub>
+    </span>
+    (
+    <span class="tex-span">
+     0 ≤
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      <i>
+       i
+      </i>
+     </sub>
+     ≤ 1000
+    </span>
+    ) — carbon dioxide concentration of each type of Coke. Some Coke types can have same concentration.
+   </p>
+  </div>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="output-specification">
+  <div class="section-title" div="">
+   <p>
+    Print the minimal natural number of liter needed to prepare a glass with carbon dioxide concentration
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/730827dc694c784c6adf7e883871d100?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    , or
+    <span class="tex-font-style-tt">
+     -1
+    </span>
+    if it is impossible.
+   </p>
+  </div>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Example
+</dt>
+</h2><div class="textBG"><dd>
+ <style type="text/css">
+  .input, .output {border: 1px solid #888888;}    .output {margin-bottom:1em;position:relative;top:-1px;}    .output pre,.input pre {background-color:#EFEFEF;line-height:1.25em;margin:0;padding:0.25em;}    .title {background-color:#FFFFFF;border-bottom: 1px solid #888888;font-family:arial;font-weight:bold;padding:0.25em;}
+ </style>
+ <div class="sample-tests">
+  <div class="section-title" div="">
+   <div class="sample-test">
+    <div class="input">
+     <div class="title">
+      Input
+     </div>
+     <pre>400 4<br/>100 300 450 500<br/></pre>
+    </div>
+    <div class="output">
+     <div class="title">
+      Output
+     </div>
+     <pre>2<br/></pre>
+    </div>
+    <div class="input">
+     <div class="title">
+      Input
+     </div>
+     <pre>50 2<br/>100 25<br/></pre>
+    </div>
+    <div class="output">
+     <div class="title">
+      Output
+     </div>
+     <pre>3<br/></pre>
+    </div>
+   </div>
+  </div>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Note
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="note">
+  <div class="section-title" div="" note="">
+   <p>
+    In the first sample case, we can achieve concentration
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/f010d772d7321982f2478d05f0172cec?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    using one liter of Coke of types
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/4b0e6b51de90de33a7aa5adee55fdfa4?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    and
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/a4399913dd7eeb3f6b2da64ebbbf67b0?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    :
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/240c2867fde27d1d90777acfbecbbe8d?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    .
+   </p>
+   <p>
+    In the second case, we can achieve concentration
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/ac0e61bee279fa09f6606110721701d8?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    using two liters of
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/d1366baf1714e2566ae562a482fea61d?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    type and one liter of
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/8d83834c043350e4641568f8047d7047?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    type:
+    <img align="middle" class="tex-formula" src="https://odzkskevi.qnssl.com/d971e8f08e6735b787c92bc67c51d874?v=1522216627" style="max-width: 100.0%;max-height: 100.0%;"/>
+    .
+   </p>
+  </div>
+ </div>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>C - How Many Equations Can You Find</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">32768 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Windows</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: { inlineMath: [['$','$']] } });
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+ </script>
+ <script type="text/javascript">
+  setTimeout(function(){MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'left_view']);}, 2000);
+ </script>
+ <div class="panel_content">
+  Now give you an string which only contains 0, 1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9.You are asked to add the sign ‘+’ or ’-’ between the characters. Just like give you a string “12345”, you can work out a string “123+4-5”. Now give you an integer N, please tell me how many ways can you find to make the result of the string equal to N .You can only choose at most one sign between two adjacent characters.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ Each case contains a string s and a number N . You may be sure the length of the string will not exceed 12 and the absolute value of N will not exceed 999999999999.
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ The output contains one line for each data set : the number of ways you can find to make the equation.
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>123456789 3
+21 1</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>18
+1</pre>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>D - Class Statistics</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">32768 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Windows</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: { inlineMath: [['$','$']] } });
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+ </script>
+ <script type="text/javascript">
+  setTimeout(function(){MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'left_view']);}, 2000);
+ </script>
+ <div class="panel_content">
+  The new principal of Woop Woop Public plans to meet the teaching team to discuss the performance of the classes/teachers and, being a bean counting fundamentalist, he wants to arm himself with some statistics for the meetings.
+  <br/>
+  Your task is to write a program that reads the pupils' marks in each class and generates performance reports for the principal prior to the meetings.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ The input starts with an integer K (1 &lt;= K &lt;= 100) indicating the number of classes on a line by itself. Each of the following K lines gives a class's data, which starts with an integer N (2 &lt;= N &lt;= 50) indicating the number of pupils in the class. The number of pupils is followed by their marks, given as integers, in the range of zero to one hundred, separated by single spaces.
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ The report for each class consists of two lines.
+ <br/>
+ The first line consists of the sentence: "Class X", where X indicates the class number starting with the value of one.
+ <br/>
+ The second line reports the maximum class mark, minimum class mark and the largest difference between consecutive marks (when sorted in non-decreasing order) in the class using the formats shown in the sample below.
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>2
+5 30 25 76 23 78
+6 25 50 70 99 70 90</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>Class 1
+Max 78, Min 23, Largest gap 46
+Class 2
+Max 99, Min 25, Largest gap 25</pre>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>E - Odd sum</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">262144 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat"></span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <div>
+  <p>
+   You are given sequence
+   <span class="tex-span">
+    <i>
+     a
+    </i>
+    <sub class="lower-index">
+     1
+    </sub>
+    ,
+    <i>
+     a
+    </i>
+    <sub class="lower-index">
+     2
+    </sub>
+    , ...,
+    <i>
+     a
+    </i>
+    <sub class="lower-index">
+     <i>
+      n
+     </i>
+    </sub>
+   </span>
+   of integer numbers of length
+   <span class="tex-span">
+    <i>
+     n
+    </i>
+   </span>
+   . Your task is to find such subsequence that its sum is odd and maximum among all such subsequences. It's guaranteed that given sequence contains subsequence with odd sum.
+  </p>
+  <p>
+   Subsequence is a sequence that can be derived from another sequence by deleting some elements without changing the order of the remaining elements.
+  </p>
+  <p>
+   You should write a program which finds sum of the best subsequence.
+  </p>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="input-specification">
+  <div class="section-title" div="">
+   <p>
+    The first line contains integer number
+    <span class="tex-span">
+     <i>
+      n
+     </i>
+    </span>
+    (
+    <span class="tex-span">
+     1 ≤
+     <i>
+      n
+     </i>
+     ≤ 10
+     <sup class="upper-index">
+      5
+     </sup>
+    </span>
+    ).
+   </p>
+   <p>
+    The second line contains
+    <span class="tex-span">
+     <i>
+      n
+     </i>
+    </span>
+    integer numbers
+    <span class="tex-span">
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      1
+     </sub>
+     ,
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      2
+     </sub>
+     , ...,
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      <i>
+       n
+      </i>
+     </sub>
+    </span>
+    (
+    <span class="tex-span">
+     - 10
+     <sup class="upper-index">
+      4
+     </sup>
+     ≤
+     <i>
+      a
+     </i>
+     <sub class="lower-index">
+      <i>
+       i
+      </i>
+     </sub>
+     ≤ 10
+     <sup class="upper-index">
+      4
+     </sup>
+    </span>
+    ). The sequence contains at least one subsequence with odd sum.
+   </p>
+  </div>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="output-specification">
+  <div class="section-title" div="">
+   <p>
+    Print sum of resulting subseqeuence.
+   </p>
+  </div>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Example
+</dt>
+</h2><div class="textBG"><dd>
+ <style type="text/css">
+  .input, .output {border: 1px solid #888888;}    .output {margin-bottom:1em;position:relative;top:-1px;}    .output pre,.input pre {background-color:#EFEFEF;line-height:1.25em;margin:0;padding:0.25em;}    .title {background-color:#FFFFFF;border-bottom: 1px solid #888888;font-family:arial;font-weight:bold;padding:0.25em;}
+ </style>
+ <div class="sample-tests">
+  <div class="section-title" div="">
+   <div class="sample-test">
+    <div class="input">
+     <div class="title">
+      Input
+     </div>
+     <pre>4<br/>-2 2 -3 1<br/></pre>
+    </div>
+    <div class="output">
+     <div class="title">
+      Output
+     </div>
+     <pre>3<br/></pre>
+    </div>
+    <div class="input">
+     <div class="title">
+      Input
+     </div>
+     <pre>3<br/>2 -5 -3<br/></pre>
+    </div>
+    <div class="output">
+     <div class="title">
+      Output
+     </div>
+     <pre>-1<br/></pre>
+    </div>
+   </div>
+  </div>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Note
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="note">
+  <div class="section-title" div="" note="">
+   <p>
+    In the first example sum of the second and the fourth elements is
+    <span class="tex-span">
+     3
+    </span>
+    .
+   </p>
+  </div>
+ </div>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>F - Snatch!</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">65536 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Linux</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  <p>
+   The company
+   <i>
+    Supersafe
+   </i>
+   produces a safe with a combination lock. The lock of this safe consists of
+   <b>
+    N
+   </b>
+   cylinders on a common axis. Each cylinder revolves on this axis independently of other cylinders. The are numbers from 1 to
+   <b>
+    M
+   </b>
+   in a circle on each cylinder. At any time, one of these numbers is visible in a special window on the door of the safe. Thus it is possible to enter numbers by rotating the cylinders. Accordingly, the code of the safe is a sequence of
+   <b>
+    N
+   </b>
+   numbers, each number belonging to the interval from 1 to
+   <b>
+    M
+   </b>
+   .
+  </p>
+  <p>
+   As a rule, such safes have a mechanism for opening them in the case the code is forgotten or lost. For this model, the mechanism has two components:
+  </p>
+  <ul>
+   <li>
+    a key which is unique for each safe and kept by the owner. This key can be put in a keyhole only when the number 1 is entered on the first cylinder. After that, all the cylinders of the lock can be turned around only simultaneously (at the same time) by the same angle;
+   </li>
+   <li>
+    a universal technological code which is common for all safes. This code is known to a specialist of the company
+    <i>
+     Supersafe
+    </i>
+    , who should be invited to open the safe. It is known that the technological code starts with the number 1.
+   </li>
+  </ul>
+  <p>
+   The process of opening the safe is as follows. The specialist enters the technological code (not allowing the owner to see the code, of course), puts in the key, and then turns all cylinders until – click – the safe unlocks. After that, the specialist takes out the key and mixes up the obtained code by entering random numbers on all the cylinders.
+  </p>
+  <p>
+   You want to open one of such safes without the owner’s knowledge. For this purpose, you have obtained a copy of the safe key and found out that:
+  </p>
+  <ul>
+   <li>
+    after entering the technological code, putting in the key, and turning cylinders, the safe opens when the sum of numbers appearing in windows is maximal;
+   </li>
+   <li>
+    the correct technological code, selected from all codes starting with the number 1, has the least value of such sum.
+   </li>
+  </ul>
+  <p>
+   It remains to determine the technological code.
+  </p>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  <p>
+   The input contains a single line with the values
+   <b>
+    N
+   </b>
+   and
+   <b>
+    M
+   </b>
+   . Both numbers are integers, belong to the interval from 2 to 20000 and are separated from each other by one or more spaces.
+  </p>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  <p>
+   The output also consists of one line. It contains the technological code. The numbers in this line should be separated by one or more spaces.
+  </p>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">2 10</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">1 6</pre>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>G - Network Saboteur</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">2000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">65536 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Linux</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  A university network is composed of N computers. System administrators gathered information on the traffic between nodes, and carefully divided the network into two subnetworks in order to minimize traffic between parts.
+  <br/>
+  A disgruntled computer science student Vasya, after being expelled from the university, decided to have his revenge. He hacked into the university network and decided to reassign computers to maximize the traffic between two subnetworks.
+  <br/>
+  Unfortunately, he found that calculating such worst subdivision is one of those problems he, being a student, failed to solve. So he asks you, a more successful CS student, to help him.
+  <br/>
+  The traffic data are given in the form of matrix C, where Cij is the amount of data sent between ith and jth nodes (Cij = Cji, Cii = 0). The goal is to divide the network nodes into the two disjointed subsets A and B so as to maximize the sum ∑Cij (i∈A,j∈B).
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  The first line of input contains a number of nodes N (2 &lt;= N &lt;= 20). The following N lines, containing N space-separated integers each, represent the traffic matrix C (0 &lt;= Cij &lt;= 10000).
+  <br/>
+  Output file must contain a single integer -- the maximum traffic between the subnetworks.
+  <br/>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  Output must contain a single integer -- the maximum traffic between the subnetworks.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">3
+0 50 30
+50 0 40
+30 40 0
+</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">90</pre>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>H - Bus Fair</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">32768 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Windows</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: { inlineMath: [['$','$']] } });
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+ </script>
+ <script type="text/javascript">
+  setTimeout(function(){MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'left_view']);}, 2000);
+ </script>
+ <div class="panel_content">
+  You are now in Foolish Land. Once moving in Foolish Land you found that there is a strange Bus fair system. The fair of moving one kilometer by bus in that country is one coin. If you want to go to X km and your friend wants to go to Y km then you can buy a ticket of X+Y coins (you are also allowed to buy two or more tickets for you two).
+  <br/>
+  <br/>
+  Now as a programmer, you want to show your creativity in buying tickets! Suppose, your friend wants to go 1 km and you want to go 2 km. Then it’s enough for you to buy a 2coin ticket! Because both of you are valid passengers before crossing the first km. and when your bus cross the first km your friend gets down from the bus. So you have the ticket of 2km! And you can safely reach to your destination, 2km using that ticket.
+  <br/>
+  <br/>
+  Now, you have a large group of friends and they want to reach to different distance. You think that you are smart enough that you can buy tickets that should manage all to reach their destination spending the minimum amount of coins. Then tell us how much we should at least pay to reach our destination.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ There are multiple test cases. Each case start with a integer n, the total number of people in that group. 0&lt;=n&lt;=1000. Then comes n integers, each of them stands for a distance one of the men of the group wants to go to. You can assume that the distance a man wants to go is always less than 10000.
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ Your program should print a single integer for a single case, the minimum amount of coins the group should spend to reach to the destination of all the members of that group.
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>2
+1
+2
+2
+2
+3</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>2
+4</pre>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>I - Catching Fish</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">5000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">32768 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Windows</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: { inlineMath: [['$','$']] } });
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+ </script>
+ <script type="text/javascript">
+  setTimeout(function(){MathJax.Hub.Queue(['Typeset', MathJax.Hub, 'left_view']);}, 2000);
+ </script>
+ <div class="panel_content">
+  Ignatius likes catching fish very much. He has a fishnet whose shape is a circle of radius one. Now he is about to use his fishnet to catch fish. All the fish are in the lake, and we assume all the fish will not move when Ignatius catching them. Now Ignatius wants to know how many fish he can catch by using his fishnet once. We assume that the fish can be regard as a point. So now the problem is how many points can be enclosed by a circle of radius one.
+  <br/>
+  <br/>
+  Note: If a fish is just on the border of the fishnet, it is also caught by Ignatius.
+  <br/>
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ The input contains several test cases. The first line of the input is a single integer T which is the number of test cases. T test cases follow.
+ <br/>
+ Each test case starts with a positive integer N(1&lt;=N&lt;=300) which indicate the number of fish in the lake. Then N lines follow. Each line contains two floating-point number X and Y (0.0&lt;=X,Y&lt;=10.0). You may assume no two fish will at the same point, and no two fish are closer than 0.0001, no two fish in a test case are approximately at a distance of 2.0. In other words, if the distance between the fish and the centre of the fishnet is smaller 1.0001, we say the fish is also caught.
+ <br/>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ For each test case, you should output the maximum number of fish Ignatius can catch by using his fishnet once.
+ <br/>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>4
+3
+6.47634 7.69628
+5.16828 4.79915
+6.69533 6.20378
+6
+7.15296 4.08328
+6.50827 2.69466
+5.91219 3.86661
+5.29853 4.16097
+6.10838 3.46039
+6.34060 2.41599
+8
+7.90650 4.01746
+4.10998 4.18354
+4.67289 4.01887
+6.33885 4.28388
+4.98106 3.82728
+5.12379 5.16473
+7.84664 4.67693
+4.02776 3.87990
+20
+6.65128 5.47490
+6.42743 6.26189
+6.35864 4.61611
+6.59020 4.54228
+4.43967 5.70059
+4.38226 5.70536
+5.50755 6.18163
+7.41971 6.13668
+6.71936 3.04496
+5.61832 4.23857
+5.99424 4.29328
+5.60961 4.32998
+6.82242 5.79683
+5.44693 3.82724
+6.70906 3.65736
+7.89087 5.68000
+6.23300 4.59530
+5.92401 4.92329
+6.24168 3.81389
+6.22671 3.62210</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre>2
+5
+5
+11</pre>
+</dd>
+</div></div><div class="pageEnd"></div><div style="width:960px;margin:auto"><h1>J - Build Your Home</h1></div><div style="width:960px;margin:auto"><span id="crawlSuccess" style="display: inline;" class="crawlInfo"><b>Time Limit:</b><span id="timeLimit">1000 ms</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>Memory Limit:</b><span id="memoryLimit">65536 kB</span>&nbsp;&nbsp;&nbsp;&nbsp;<b>64bit IO Format:</b><span id="_64IOFormat">Linux</span></span></div><div style="width:960px;margin:auto"><div style="display: block;"><h2><dt>
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  Mr. Tenant is going to buy a new house. In fact, he is going to buy a piece of land and build his new house on it. In order to decide which piece of land to buy, Mr. Tenant needs a program which will give a score to each piece. Each candidate piece of land is a polygonal shape (not necessarily convex), and Mr. Tenant wonders what the best score is. Among possible scores, he considered the number of vertices, sum of angles, minimum number of required guards, and so forth. Finally, Mr. Tenant decided that the best score for a piece of land would simply be its area. Your task is to write the desired scoring program.
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Input
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  The input file consists of multiple pieces of land. Each piece is a simple polygon (that is, a polygon which does not intersect itself). A polygon description starts with a positive integer number k, followed by k vertices, where each vertex consists of two coordinates (floating-point numbers): x and y. Naturally, the last vertex is connected by an edge to the first vertex. Note that each polygon can be ordered either clockwise or counterclockwise. The input ends with a “0” (the number zero).
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Output
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  For each piece of land, the output should consist of exactly one line containing the score of that piece, rounded to the nearest integer number. (Halves should be rounded up, but Mr. Tenant never faced such cases.)
+ </div>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Input
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">1   123.45 67.890 
+3   0.001 0   1.999 0   0 2 
+5   10 10   10 12   11 11   12 12   12.0 10.0 
+0</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Sample Output
+</dt>
+</h2><div class="textBG"><dd>
+ <pre class="sio">0
+2
+3</pre>
+</dd>
+</div></div><div style="display: block;"><h2><dt>
+ Hint
+</dt>
+</h2><div class="textBG"><dd>
+ <div class="ptx" lang="en-US">
+  The scoring program has to handle well degenerate cases, such as, polygons with only one or two vertices.
+ </div>
+</dd>
+</div></div></body></html>
